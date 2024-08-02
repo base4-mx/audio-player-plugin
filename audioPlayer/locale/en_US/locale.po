@@ -1,7 +1,7 @@
-msgid "plugins.generic.ViewerAudio.name"
+msgid "plugins.generic.audioPlayer.name"
 msgstr "Audio player mpeg"
 
-msgid "plugins.generic.ViewerAudio.description"
+msgid "plugins.generic.audioPlayer.description"
 msgstr "This plugins add a mp3 pĺayer for reproduce mpeg files in your browser"
 
 msgid "article.author"
