@@ -1,25 +1,22 @@
 # AudioPlayer Plugin for OJS
 
-## Important
-The plugin works best with Firefox browser since Chrome sometimes does not allow seeking forward 10 seconds.
-
 ## Description
 The AudioPlayer Plugin adds an audio player for MP3 (.mpeg) files to your Open Journal Systems (OJS) installation. This plugin allows audio files to be played directly from the browser, enhancing accessibility and user experience.
 
 ## Features
 - Integrated audio player for MP3 files.
 - Playback speed control (0.5x, 1x, 1.5x, 2x).
-- Buttons to skip forward or backward 10 seconds.
 - Support for dark mode.
 - Translations in English and Spanish.
 
 ## Installation
-1. Unzip the downloaded file.
-2. Verify that the main folder is named `Audio` and contains an `.inc.php` file, two `.xml` files, and a `.php` file, along with two subfolders: `templates` and `locale`.
-3. Move the `Audio` folder to the OJS plugins directory (`plugins/generic`). You can do this using the terminal or a file manager.
-4. Access the OJS administration panel and navigate to the "Installed Plugins" section.
-5. Verify that the plugin is listed. If so, activate it.
-6. If the plugin does not appear in the list, review the previous steps to ensure the installation was completed correctly.
+1. Download the file `audioplayer.tar.gz`.
+2. Log in to your OJS and go to the Control Panel.
+3. In the left menu, find the "Website" section and click on it.
+4. In the "Plugins" section, look for the option "Upload a New Plugin" and click on it.
+5. A section will appear where you can upload your file. Click on "Upload File" and select the `audioplayer.tar.gz` file you downloaded earlier.
+6. Once the upload is complete, save and wait for the process to finish.
+7. After the installation is complete, find the plugin in the same section. Once you find it, check the box to enable it, and it will be ready for use.
 
 
 ## Usage
@@ -32,8 +29,6 @@ To upload an audio file, follow these steps:
 
 ## Player Controls
 - **Play/Pause:** Controls audio playback.
-- **Skip Forward 10 Seconds:** Button to skip forward 10 seconds.
-- **Rewind 10 Seconds:** Button to rewind 10 seconds.
 - **Speed Control:** Adjusts playback speed between 0.5x, 1x, 1.5x, and 2x.
 - **Dark Mode:** Toggle between light and dark mode.
 
@@ -61,26 +56,24 @@ For support, issues, or questions, please contact hola@base4.mx
 
 # Plugin AudioPlayer para OJS
 
-## Importante
-El plugin funciona mejor con el navegador Firefox ya que Chrome a veces no permite adelantar 10 segundos.
-
 ## Descripción
 El Plugin AudioPlayer agrega un reproductor de audio para archivos MP3 (.mpeg) a tu instalación de Open Journal Systems (OJS). Este plugin permite reproducir archivos de audio directamente desde el navegador, mejorando la accesibilidad y la experiencia del usuario.
 
 ## Características
 - Reproductor de audio integrado para archivos MP3.
 - Control de velocidad de reproducción (0.5x, 1x, 1.5x, 2x).
-- Botones para avanzar o retroceder 10 segundos.
 - Soporte para modo oscuro.
 - Traducciones en inglés y español.
 
 ## Instalación
-1. Descomprime el archivo descargado.
-2. Verifica que la carpeta principal se llame `Audio` y contenga un archivo `.inc.php`, dos archivos `.xml` y un archivo `.php`, junto con dos subcarpetas: `templates` y `locale`.
-3. Mueve la carpeta `Audio` al directorio de plugins de OJS (`plugins/generic`). Puedes hacerlo usando la terminal o un administrador de archivos.
-4. Accede al panel de administración de OJS y navega a la sección de "Plugins Instalados".
-5. Verifica que el plugin esté listado. Si es así, actívalo.
-6. Si el plugin no aparece en la lista, revisa los pasos anteriores para asegurar que la instalación se haya realizado correctamente.
+1. Descarga el archivo `audioplayer.tar.gz`.
+2. Ingresa a tu OJS y ve al Panel de Control.
+3. En el menú de la izquierda, busca el apartado "Sitio Web" y haz clic en él.
+4. En el apartado "Plugins" (Módulos), busca la opción "Cargar un nuevo módulo" y haz clic en ella.
+5. Se mostrará un apartado para subir tu archivo. Haz clic en "Subir fichero" y selecciona el archivo `audioplayer.tar.gz` que descargaste previamente.
+6. Una vez que se complete la subida, guarda y espera a que el proceso termine.
+7. Después de que la instalación esté completa, busca este plugin en el mismo apartado. Una vez que lo encuentres, marca la casilla para habilitarlo, y estará listo para su uso.
+
 
 ## Uso
 Una vez instalado y habilitado, el plugin se integrará en las páginas de presentación de artículos y números de la revista. Verás un reproductor de audio en las páginas de galerada con controles para reproducir, avanzar, retroceder y cambiar la velocidad.
@@ -92,8 +85,6 @@ Para subir un archivo de audio, sigue estos pasos:
 
 ## Controles del Reproductor
 - **Reproducir/Pausar:** Controla la reproducción del audio.
-- **Avanzar 10 segundos:** Botón para avanzar 10 segundos.
-- **Retroceder 10 segundos:** Botón para retroceder 10 segundos.
 - **Control de Velocidad:** Cambia la velocidad de reproducción entre 0.5x, 1x, 1.5x y 2x.
 - **Modo Oscuro:** Alterna entre el modo claro y el modo oscuro.
 
