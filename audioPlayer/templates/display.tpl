@@ -21,11 +21,12 @@
     <!-- Inline CSS styles for the page -->
     <style>
         /* Style for the body of the page */
-        body {
+        html,body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            overflow: hidden; /* Disable scrolling on the body */
             background-color: #ffffff; /* White background */
             transition: background-color 0.3s, color 0.3s;
         }
@@ -37,9 +38,11 @@
             border-radius: 12px;
             margin: 20px auto;
             padding: 20px;
-            max-width: 600px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: auto; /* Adds scroll bars if content is too large */
+            max-width: 1200px; /* Increased maximum width for the container */
+            width: 50%; /* Ensure container takes full width up to max-width */
+            max-height: 80vh; /* Maximum height for the container */
+            overflow-y: auto; /* Adds scroll bars if content is too large */
+            overflow-x: hidden; /* Hide horizontal scroll bar */
             position: relative; /* Ensures absolutely positioned elements are relative to this container */
             transition: background-color 0.5s ease, color 0.3s ease, transform 0.5s ease;
         }
@@ -63,35 +66,6 @@
         /* Style for the audio element */
         audio {
             flex-grow: 1;
-        }
-
-        /* Container for the audio control buttons */
-        .audio-controls {
-            display: flex;
-            align-items: center;
-            margin-left: 10px;
-        }
-
-        /* Style for the audio control buttons */
-        .audio-controls button {
-            background-color: #007bff;
-            border: none;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 5px;
-        }
-
-        .audio-controls button:hover {
-            background-color: #0056b3;
-        }
-
-        .audio-controls .material-icons {
-            font-size: 24px;
         }
 
         /* Container for the speed control */
@@ -297,6 +271,11 @@
                 {$title|escape}
             </h3>
 
+            <!-- DOI link -->
+            {if $doi}
+                <p><a href="https://doi.org/{$doi|escape}" target="_blank">https://doi.org/{$doi|escape}</a></p>
+            {/if}
+
             <!-- Audio player and controls -->
             <div class="audio-container">
                 <audio id="audioPlayer" controls>
@@ -305,16 +284,6 @@
                 </audio>
 
                 <!-- Custom audio controls -->
-                <div class="audio-controls">
-                    <button id="backwardButton">
-                        <span class="material-icons">replay_10</span>
-                    </button>
-                    <button id="forwardButton">
-                        <span class="material-icons">forward_10</span>
-                    </button>
-                </div>
-
-                <!-- Speed control -->
                 <div class="speed-control">
                     <select id="speedControl">
                         <option value="0.5">0.5x</option>
@@ -332,10 +301,9 @@
                 {foreach from=$authors item=author}
                     <p>{$author->getFullName()|escape}</p>
                     <p>{$author->getLocalizedAffiliation()|escape}</p>
-                    <p>{$author->getEmail()|escape}</p>
-                    <p>{$author->getCountry()|escape}</p>
-                    <p>{$author->getLocalizedUserGroupName()|escape}</p>
-                    <p>{$author->getLocalizedBiography()|strip_tags}</p>
+                    {if $author->getORCID()}
+                        <p><a href="https://orcid.org/{$author->getORCID()|escape}" target="_blank">{$author->getORCID()|escape}</a></p>
+                    {/if}
                     <hr>
                 {/foreach} 
 
@@ -364,14 +332,12 @@
         {call_hook name="Templates::Common::Footer::PageFooter"}
     </div>
 
-    <!-- JavaScript for dark mode toggle and audio controls -->
+    <!-- JavaScript for dark mode toggle -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const toggleButton = document.getElementById('darkModeToggle');
             const galleyView = document.querySelector('.galley_view');
             const icon = document.getElementById('darkModeIcon');
-            const forwardButton = document.getElementById('forwardButton');
-            const backwardButton = document.getElementById('backwardButton');
             const audioPlayer = document.getElementById('audioPlayer');
             const speedControl = document.getElementById('speedControl');
 
@@ -405,17 +371,9 @@
                         // Set icon colors in dark mode
                         document.querySelectorAll('.material-icons').forEach(function(icon) {
                             icon.style.color = '#ffc107'; /* Yellow */
-							icon.style.textShadow = '1px 1px 1px #666'; /* dark gray light shade */
+                            icon.style.textShadow = '1px 1px 1px #666'; /* dark gray light shade */
                         });
                     }
-                });
-
-                forwardButton.addEventListener('click', function() {
-                    audioPlayer.currentTime += 10;
-                });
-
-                backwardButton.addEventListener('click', function() {
-                    audioPlayer.currentTime -= 10;
                 });
 
                 speedControl.addEventListener('change', function() {

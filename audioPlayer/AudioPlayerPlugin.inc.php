@@ -133,6 +133,7 @@ class AudioPlayerPlugin extends GenericPlugin {
                 'authors' => $authors,
                 'keywords' => implode(', ', $galleyPublication->getLocalizedData('keywords')),
                 'abstract' => $galleyPublication->getLocalizedData('abstract'),
+                'doi' => $submission->getStoredPubId('doi') 
             ));
             // Display the template with the assigned data
             $templateMgr->display($this->getTemplateResource('submissionGalley.tpl'));
